@@ -1,0 +1,87 @@
+<div class="col-md-6 offset-md-3">
+    <h3 class="text-center"> Registro de Ordenes Compra</h3> 
+    <form (ngSubmit)="onSubmit()" #ordenForm = "ngForm">
+    <div class="form-group">
+        <label>ID Compra : </label>
+        <input type="text"
+        class="form-control"
+        id= "idOrdCompra"
+        [(ngModel)]="orden.idOrdCompra"
+        name ="idOrdCompra" 
+        required
+        minlength="4"
+        maxlength="10"
+        placeholder="Digite El ID Compra"
+        #idOrdCompra="ngModel"
+        > 
+        
+        <div class="alert alert-danger" *ngIf= "idOrdCompra.invalid && (idOrdCompra.dirty || idOrdCompra.touched)">
+           <div *ngIf="idOrdCompra?.errors?.['required'] ">
+              Digite su E ID Cmpra por favor
+            </div>
+            <div *ngIf = "idOrdCompra?.errors?.['minlength']">
+              El ID Compra tiene que contener como minimo 4 caracteres
+            </div>
+            <div *ngIf = "idOrdCompra?.errors?.['maxlength']">
+              El ID Compra tiene que tener como maximo 10 caracteres
+            </div>
+        </div>     
+     </div>	
+
+
+     <div class="form-group">
+        <label>ID Cliente</label>
+        <input type="text"
+        class="form-control"
+        id="idCliente"
+        [(ngModel)]="orden.idCliente"
+        name="idCliente"
+        required
+        minlength="1"
+        maxlength="10"
+        placeholder="Digite su ID Cliente "
+        #idCliente = "ngModel"
+        >
+        <div class="alert alert-danger" *ngIf= "idCliente.invalid && (idCliente.dirty || idCliente.touched)">
+           <div *ngIf="idCliente?.errors?.['required'] ">
+              Digite su ID Cliente por favor
+            </div>
+            <div *ngIf = "idCliente?.errors?.['minlength']">
+              El ID Cliente tiene que contener como minimo 1 caracteres
+            </div>
+            <div *ngIf = "idCliente?.errors?.['maxlength']">
+              El ID Cliente tiene que tener como maximo 10 caracteres
+            </div>
+        </div>
+     </div>
+
+     <div class="form-group">
+        <label>Nombre Cliente</label>
+        <input type="text"
+        class="form-control"
+        id="nombrecliente"
+        [(ngModel)]="orden.nombrecliente"
+        name="nombrecliente"
+        required
+        minlength="4"
+        maxlength="10"
+        placeholder="Digite El Nombre Cliente "
+        #nombrecliente = "ngModel"
+        >
+        <div class="alert alert-danger" *ngIf= "nombrecliente.invalid && (nombrecliente.dirty || nombrecliente.touched)">
+           <div *ngIf="nombrecliente?.errors?.['required'] ">
+              Digite su ID Cliente por favor
+            </div>
+            <div *ngIf = "nombrecliente?.errors?.['minlength']">
+              El Nombre Cliente tiene que contener como minimo 4 caracteres
+            </div>
+            <div *ngIf = "nombrecliente?.errors?.['maxlength']">
+              El Nombre Cliente tiene que tener como maximo 10 caracteres
+            </div>
+        </div>
+     </div>
+
+     <button class="btn btn-success" [disabled]= "!ordenForm.form.valid">Guardar</button>
+  </form>
+
+</div>

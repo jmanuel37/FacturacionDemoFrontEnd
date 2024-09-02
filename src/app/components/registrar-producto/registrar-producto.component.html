@@ -1,0 +1,140 @@
+<div class="col-md-6 offset-md-3">
+    <h3 class="text-center"> Registro de Producto</h3> 
+    <form (ngSubmit)="onSubmit()" #productoForm = "ngForm">
+    <div class="form-group">
+        <label>ID Producto : </label>
+        <input type="text"
+        class="form-control"
+        id= "idProducto"
+        [(ngModel)]="producto.idProducto"
+        name ="idProducto" 
+        required
+        minlength="1"
+        maxlength="10"
+        placeholder="Digite El ID Producto"
+        #idProducto="ngModel"
+        > 
+        
+        <div class="alert alert-danger" *ngIf= "idProducto.invalid && (idProducto.dirty || idProducto.touched)">
+           <div *ngIf="idProducto?.errors?.['required'] ">
+              Digite su E ID Cmpra por favor
+            </div>
+            <div *ngIf = "idProducto?.errors?.['minlength']">
+              El ID producto tiene que contener como minimo 1 caracteres
+            </div>
+            <div *ngIf = "idProducto?.errors?.['maxlength']">
+              El ID producto tiene que tener como maximo 10 caracteres
+            </div>
+        </div>     
+     </div>	
+
+
+     <div class="form-group">
+        <label>Nombre</label>
+        <input type="text"
+        class="form-control"
+        id="nombreProd"
+        [(ngModel)]="producto.nombreProd"
+        name="nombreProd"
+        required
+        minlength="1"
+        maxlength="100"
+        placeholder="Digite El nombre Del producto "
+        #nombreProd = "ngModel"
+        >
+        <div class="alert alert-danger" *ngIf= "nombreProd.invalid && (nombreProd.dirty || nombreProd.touched)">
+           <div *ngIf="nombreProd?.errors?.['required'] ">
+              Digite su ID Cliente por favor
+            </div>
+            <div *ngIf = "nombreProd?.errors?.['minlength']">
+              El Nombres tiene que contener como minimo 1 caracteres
+            </div>
+            <div *ngIf = "nombreProd?.errors?.['maxlength']">
+              El Nombre tiene que tener como maximo 100 caracteres
+            </div>
+        </div>
+     </div>
+
+     <div class="form-group">
+        <label>Precio</label>
+        <input type="text"
+        class="form-control"
+        id="precioProd"
+        [(ngModel)]="producto.precioProd"
+        name="precioProd"
+        required
+        minlength="1"
+        maxlength="10"
+        placeholder="Digite El Precio "
+        #precioProd = "ngModel"
+        >
+        <div class="alert alert-danger" *ngIf= "precioProd.invalid && (precioProd.dirty || precioProd.touched)">
+           <div *ngIf="precioProd?.errors?.['required'] ">
+              Digite El precio por favor
+            </div>
+            <div *ngIf = "precioProd?.errors?.['minlength']">
+              Elprecio tiene que contener como minimo 1 caracteres
+            </div>
+            <div *ngIf = "precioProd?.errors?.['maxlength']">
+              El precio tiene que tener como maximo 10 caracteres
+            </div>
+        </div>
+     </div>
+
+     <div class="form-group">
+        <label>Descripcion</label>
+        <input type="text"
+        class="form-control"
+        id="descripcionProd"
+        [(ngModel)]="producto.descripcionProd"
+        name="descripcionProd"
+        required
+        minlength="4"
+        maxlength="100"
+        placeholder="Digite La Descripcion"
+        #descripcionProd = "ngModel"
+        >
+        <div class="alert alert-danger" *ngIf= "descripcionProd.invalid && (descripcionProd.dirty || descripcionProd.touched)">
+           <div *ngIf="descripcionProd?.errors?.['required'] ">
+              Digite La descripcion por favor
+            </div>
+            <div *ngIf = "descripcionProd?.errors?.['minlength']">
+              La descripcion tiene que contener como minimo 1 caracteres
+            </div>
+            <div *ngIf = "descripcionProd?.errors?.['maxlength']">
+              La descripcion tiene que tener como maximo 100 caracteres
+            </div>
+        </div>
+     </div>
+
+     <div class="form-group">
+        <label>Unidades de Medicion</label>
+        <input type="text"
+        class="form-control"
+        id="uniMedidaProd"
+        [(ngModel)]="producto.uniMedidaProd"
+        name="uniMedidaProd"
+        required
+        minlength="1"
+        maxlength="10"
+        placeholder="Digite la Unidades de Medida "
+        #uniMedidaProd = "ngModel"
+        >
+        <div class="alert alert-danger" *ngIf= "uniMedidaProd.invalid && (uniMedidaProd.dirty || precioProd.touched)">
+           <div *ngIf="uniMedidaProd?.errors?.['required'] ">
+              Digite la Unidades de Medida por favor
+            </div>
+            <div *ngIf = "uniMedidaProd?.errors?.['minlength']">
+             La Unidades tiene que contener como minimo 1 caracteres
+            </div>
+            <div *ngIf = "uniMedidaProd?.errors?.['maxlength']">
+             La Unidades tiene que tener como maximo 10 caracteres
+            </div>
+        </div>
+     </div>
+
+     <button class="btn btn-success" [disabled]= "!productoForm.form.valid">Guardar</button>
+  </form>
+
+</div>
+

@@ -1,0 +1,77 @@
+
+<div class="col-md-6 offset-md-3">
+    <h3 class="text-center">Modificacion de Producto</h3>
+    <form (ngSubmit)= "onSubmit()" #productoForm = "ngForm">
+      <div class="form-group">
+        <label>Nombre : </label>
+        <input type = "text"
+        class="form-control"
+        id = "nombreProd"
+        [(ngModel)] = "producto.nombreProd"
+        name = "nombreProd"
+        required
+        minlength="1"
+        maxlength="100"
+        placeholder="Digite El nombre de producto "
+        #nombre = "ngModel"
+        >
+
+       
+        
+      </div>
+  
+      <div class="form-group">
+        <label>Precio : </label>
+        <input type = "text"
+        class="form-control"
+        id = "precioProd"
+        [(ngModel)] = "producto.precioProd"
+        name = "precioProd"
+        required
+        minlength="1"
+        maxlength="10"
+        placeholder="Digite El Precio de producto "
+        #nombre = "ngModel"
+        >
+
+       
+        
+      </div>
+        
+      <div class="form-group">
+        <label>Descripcion : </label>
+        <input type = "text"
+        class="form-control"
+        id = "descripcionProd"
+        [(ngModel)] = "producto.descripcionProd"
+        name = "descripcionProd"
+        required
+        minlength="1"
+        maxlength="100"
+        placeholder="Digite la Descripcion de producto "
+        #nombre = "ngModel"
+        >
+
+       
+        
+      </div>
+      <div class="form-group">
+        <label>Unidades Medida : </label>
+        <input type = "text"
+        class="form-control"
+        id = "uniMedidaProd"
+        [(ngModel)] = "producto.uniMedidaProd"
+        name = "uniMedidaProd"
+        required
+        minlength="1"
+        maxlength="10"
+        placeholder="Digite la Unidades de Medida de producto "
+        #nombre = "ngModel"
+        >
+        
+        
+      </div>
+
+      <button class="btn btn-success" [disabled]= "!productoForm.form.valid">Guardar</button>
+    </form>
+  </div>
